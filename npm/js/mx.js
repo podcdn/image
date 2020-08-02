@@ -8,7 +8,7 @@ window.onload=function (){
 	load();
 }
 
-function load() //ÔØÈëÒ³ÃæÊ±µ÷ÓÃ
+function load() //è½½å…¥é¡µé¢æ—¶è°ƒç”¨
 {
 	token = getCookie("token");
 	if(token != "")
@@ -40,16 +40,16 @@ $("#log").click(function(){
 	var user = $('.username').val();
 	var pass = $('.password').val();
 	
-	//ÕÊºÅÃÜÂë¸ñÊ½¼ì²é
+	//å¸å·å¯†ç æ ¼å¼æ£€æŸ¥
 	if(user.length < 5)
 	{
-		myFunction("ÕÊºÅ²»ÄÜ³¤¶È²»ÄÜĞ¡ÓÚ5");
+		myFunction("å¸å·ä¸èƒ½é•¿åº¦ä¸èƒ½å°äº5");
 		return;
 	}
 	
 	if(pass.length < 6)
 	{
-		myFunction("ÃÜÔ¿²»ÄÜ³¤¶È²»ÄÜĞ¡ÓÚ6");
+		myFunction("å¯†é’¥ä¸èƒ½é•¿åº¦ä¸èƒ½å°äº6");
 		return;
 	}
 	
@@ -71,17 +71,17 @@ $("#log").click(function(){
 		function(data,status){
 		var json = eval('(' + data + ')');
 		if(json.code == 900){
-			myFunction("µÇÂ¼³É¹¦");
+			myFunction("ç™»å½•æˆåŠŸ");
 			$("#login_main").attr("style","display:none;");
 			$("#video_list").attr("style","display:block;");
 			
 			return;
         }else if(json.code == 901)
 		{
-			myFunction("ÕÊºÅ»òÃÜÂë´íÎó");
+			myFunction("å¸å·æˆ–å¯†ç é”™è¯¯");
 		}else if(json.code == 902)
 		{
-			myFunction("·Ç»áÔ±¸ü»»¹éÊôµØĞèµÈ´ı" + json.msg + "·ÖÖÓ");
+			myFunction("éä¼šå‘˜æ›´æ¢å½’å±åœ°éœ€ç­‰å¾…" + json.msg + "åˆ†é’Ÿ");
 		}
 		
 		$("#log").removeAttr("disabled");
@@ -112,14 +112,14 @@ return "";
 
 function testAdd()
 {
-	for(i = 0; i < 35; i++)
+	for(i = 0; i < 40; i++)
 	{
-		$(".L").append('<div class="item"><a href="#{²¥·ÅÒ³Ãæ}" style="background: url(&quot;/img/('+i+').jpg&quot;);padding-bottom: 75%;"></a> <a href="#{²¥·ÅÒ³Ãæ}" class="else" style="background: rgba(221, 179, 179, 0.3);"><s>{±êÇ©}</s> <h3>{±êÌâ}</h3> <p class="here"><i class="icon-comment">142</i> <i class="icon-images">15</i> <i class="icon-key">2</i> <!----></p></a></div>');
+		$(".L").append('<div class="item"><a href="#{æ’­æ”¾é¡µé¢}" style="background: url(&quot;/img/('+ i +').jpg&quot;);padding-bottom: ' + calcHeight("http://127.0.0.1/img/(" + i + ").jpg") + '%;"></a> <a href="#{æ’­æ”¾é¡µé¢}" class="else" style="background: rgba(221, 179, 179, 0.3);"><s>{æ ‡ç­¾}</s> <h3>{æ ‡é¢˜}</h3> <p class="here"><i class="icon-comment">142</i> <i class="icon-images">15</i> <i class="icon-key">2</i> <!----></p></a></div>');
 	}
 	
 }
 
-function calcHeight(imgUrl) //¼ÆËã¿í¸ß±ÈÂÊ²¢±£Áô2Î»Ğ¡Êı
+function calcHeight(imgUrl) //è®¡ç®—å®½é«˜æ¯”ç‡å¹¶ä¿ç•™2ä½å°æ•°
 {
 	var image = new Image();
 	image.src = imgUrl;
